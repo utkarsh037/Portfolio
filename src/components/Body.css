@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@30..200,24&display=swap");
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(38, 38, 38, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  color: white;
+  padding: 20px; /* Add padding for better appearance on small screens */
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; /* Base width for larger screens */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.hero-section .text {
+  flex: 1;
+  text-align: left; /* Align text to the left */
+  padding-right: 20px; /* Add space between text and image */
+}
+
+.hero-section h1 {
+  font-size: 36px;
+}
+
+.hero-section h2 {
+  font-size: 48px;
+  color: #61dafb;
+}
+
+.hero-section p {
+  margin: 20px 0;
+  font-size: 25px;
+}
+
+.cta-button {
+  background-color: #61dafb;
+  border: none;
+  padding: 10px 20px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #00bcd4;
+}
+
+.typing-effect {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #61dafb;
+  border-right: 2px solid #61dafb; /* Simulate a blinking cursor */
+  animation: blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  from {
+    border-color: #61dafb;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+h2 {
+  font-size: 12vw; /* Automatically adjusts font size to viewport width */
+  font-family: Nabla;
+}
+
+@font-palette-values --Nabla {
+  font-family: Nabla;
+  base-palette: 2;
+}
+
+span {
+  animation: depth 1s ease-in-out alternate infinite;
+  position: relative;
+  display: inline-block;
+  font-variation-settings: "EDPT" 30;
+  font-palette: --Nabla;
+}
+
+@keyframes depth {
+  0% {
+    transform: translatex(0) translatey(0);
+  }
+  100% {
+    font-variation-settings: "EDPT" 200;
+    transform: translatex(0.15em) translatey(0.1em);
+  }
+}
+
+/* Image styles */
+.hero-section .image-container {
+  flex: 1;
+  text-align: right; /* Align image to the right */
+  margin-top: 20px; /* Add space for stacked layout on small screens */
+}
+
+.hero-section .image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional for rounded corners */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column; /* Stack text and image vertically */
+    align-items: center; /* Center align the items */
+  }
+
+  .hero-section .text {
+    text-align: center; /* Center text on mobile */
+    padding-right: 0; /* Remove unnecessary padding */
+  }
+
+  .hero-section h1,
+  .hero-section h2 {
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+  .hero-section p {
+    font-size: 18px; /* Smaller paragraph font size */
+  }
+
+  .cta-button {
+    width: 100%; /* Make buttons full width */
+    margin: 10px 0; /* Add spacing between buttons */
+  }
+
+  .hero-section .image-container {
+    text-align: center; /* Center the image */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h2 {
+    font-size: 20px; /* Further reduce font size */
+  }
+
+  .typing-effect {
+    font-size: 1rem; /* Adjust typing effect font size */
+  }
+}
+.fun-intro {
+  color: #fff; /* White text */
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-style: italic;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

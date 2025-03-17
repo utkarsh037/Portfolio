@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Import Components
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+import NasaAPOD from "./components/NasaAPOD";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import TerminalMode from "./components/TerminalMode";
+
+import "./App.css";
 
 function App() {
+  const [terminalMode, setTerminalMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        {terminalMode ? (
+          <>
+            {/* Terminal Mode Active */}
+            <Header terminalMode={terminalMode} setTerminalMode={setTerminalMode} />
+            <TerminalMode />
+          </>
+        ) : (
+          <>
+            {/* Header */}
+            <Header terminalMode={terminalMode} setTerminalMode={setTerminalMode} />
+
+            {/* Routes */}
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+
+            {/* Footer */}
+            <Footer />
+          </>
+        )}
+      </div>
+    </Router>
+  );
+}
+
+// HomePage Component (with Body and NasaAPOD)
+function HomePage() {
+  return (
+    <>
+      <Body />
+      <Skills />
+      <About />
+      <NasaAPOD />
+    </>
   );
 }
 

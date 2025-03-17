@@ -1,0 +1,43 @@
+.nasa-apod {
+  text-align: center;
+  padding: 20px;
+}
+
+.nasa-apod h1 {
+  font-size: 2.5em;
+  color: blue;
+}
+
+.nasa-apod h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 10px;
+}
+
+.nasa-apod p {
+  font-size: 1.2em;
+  margin-top: 15px;
+  color: white;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apod-image {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.loading {
+  font-size: 1.5em;
+  color: #007bff;
+}
+
+.error {
+  font-size: 1.5em;
+  color: red;
+}
+.about-heading{
+  color: white;
+}

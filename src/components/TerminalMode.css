@@ -1,0 +1,52 @@
+body.dark-theme {
+    background-color: #000;
+    color: #00ff00;
+  }
+  
+  body.light-theme {
+    background-color: #f9f9f9;
+    color: #00ff00; /* Keep green text */
+  }
+  
+  body.glitch {
+    animation: glitch 0.3s infinite;
+  }
+  
+  @keyframes glitch {
+    0% {
+      background-color: red;
+    }
+    50% {
+      background-color: blue;
+    }
+    100% {
+      background-color: green;
+    }
+  }
+  
+  .terminal-container {
+    padding: 20px;
+    font-family: monospace;
+    min-height: 90vh;
+    background: inherit;
+    color: #00ff00; /* Green text */
+  }
+  
+  .terminal-line {
+    margin-bottom: 5px;
+    white-space: pre-wrap;
+  }
+  
+  .terminal-prompt {
+    color: #00ff00;
+  }
+  
+  input {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    outline: none;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+  
