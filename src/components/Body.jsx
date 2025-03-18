@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-//import TerminalMode from "./TerminalMode"; // Import TerminalMode
 import "./Body.css";
 
 const TypingEffect = ({ textArray, typingSpeed = 100, pauseTime = 2000 }) => {
@@ -33,7 +32,8 @@ const TypingEffect = ({ textArray, typingSpeed = 100, pauseTime = 2000 }) => {
 
 function Body() {
   const navigate = useNavigate();
-  const [showTerminal, setShowTerminal] = useState(false); // Terminal toggle state
+  const [showTerminal, setShowTerminal] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleProjectsClick = () => {
     navigate("/projects");
@@ -43,18 +43,37 @@ function Body() {
     navigate("/contact");
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <main className="body">
       <section className="hero-section">
         <div className="text">
           <h1>Hello !!!</h1>
           <h2>
-            I’m <span>U</span><span>T</span><span>K</span><span>A</span><span>R</span><span>S</span><span>H</span>
+            {`I’m `}
+            {"UTKARSH".split("").map((char, i) => (
+              <span key={i}>{char}</span>
+            ))}
           </h2>
-          <p className="fun-intro">A civil engineer who took a wrong turn and ended up coding full-stack apps. Oops... but no regrets! 😎</p>
+          <p className="fun-intro">
+            A civil engineer who took a wrong turn and ended up coding full-stack apps. Oops... but no regrets! 😎
+          </p>
 
           <p>
-            <TypingEffect 
+            <TypingEffect
               textArray={[
                 "A Full Stack Web Developer",
                 "A Blockchain Enthusiast",
@@ -75,7 +94,11 @@ function Body() {
         </div>
 
         <div className="image-container">
-          <img src="img1.gif" alt="Space" />
+          <img 
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2p3dnNjbWx5ZXN4eHJ1NnhoM3A5ejcwNG54cThqMTJkODl6bXN2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mf8UbIDew7e8g/giphy.gif"
+            alt="Blockchain Cube Spinning"
+            style={{ width: '400px', height: '400px', objectFit: 'cover' }}
+          />
         </div>
       </section>
     </main>
@@ -83,3 +106,4 @@ function Body() {
 }
 
 export default Body;
+

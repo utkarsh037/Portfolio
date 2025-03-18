@@ -17,7 +17,7 @@ function App() {
   const [terminalMode, setTerminalMode] = useState(false);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="app-container">
         {terminalMode ? (
           <>

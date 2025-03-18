@@ -7,7 +7,7 @@ const About = () => {
     <section className="about-section">
       <div className="about-container">
         <div className="about-image">
-          <img src="/mypic.jpeg" alt="Utkarsh's Profile" />
+          <img src={`${process.env.PUBLIC_URL}/mypic.jpeg`} alt="Utkarsh's Profile" />
         </div>
         <div className="about-content">
           <motion.h1

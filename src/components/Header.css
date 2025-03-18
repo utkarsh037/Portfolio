@@ -1,3 +1,5 @@
+/* Header.css */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -5,27 +7,29 @@
   background-color: #121212;
   color: white;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-title {
   font-size: 24px;
+  font-weight: bold;
 }
 
 .header-nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
-}
-
-.header-nav li {
-  font-size: 16px;
+  transition: all 0.4s ease-in-out;
 }
 
 .header-nav li a {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 16px;
 }
 
 .header-nav li a:hover {
@@ -34,11 +38,11 @@
 
 /* Terminal Mode Button Styling */
 .terminal-btn {
-  padding: 8px 12px;
+  padding: 8px 14px;
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -46,4 +50,42 @@
 .terminal-btn:hover {
   background-color: white;
   color: black;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .header-nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: #121212;
+    width: 100%;
+    transform: translateY(-200%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .header-nav.open {
+    transform: translateY(0);
+  }
+
+  .header-nav ul {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .header-nav li {
+    margin: 15px 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
 }
